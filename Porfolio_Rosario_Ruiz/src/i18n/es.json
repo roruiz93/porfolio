@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Skills",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú",
+    "skipLink": "Saltar al contenido",
+    "mainNav": "Navegación principal",
+    "switchLang": "Switch to English"
+  },
+  "hero": {
+    "eyebrow": "Portfolio — 2025",
+    "bio": "Desarrolladora de Software Junior — apasionada por construir interfaces limpias y sistemas que funcionan.",
+    "ctaProjects": "Ver proyectos",
+    "ctaContact": "Hablemos",
+    "codeLabel": "Snippet de código con el perfil de Rosario"
+  },
+  "about": {
+    "badge": "Sobre mí",
+    "h2a": "Código limpio,",
+    "h2b": "soluciones reales",
+    "stat1AriaLabel": "Más de 1 año",
+    "stat1Label": "Año en desarrollo",
+    "stat2Label": "Tecnologías core",
+    "p1": "Soy Rosario, desarrolladora de software con enfoque en frontend y mobile. Me especializo en React, React Native y Vue.js para construir aplicaciones web y móviles modernas.",
+    "p2": "Actualmente en mi primer rol profesional como Junior Developer, donde aprendo rápido y aporto desde el primer día. Me interesa especialmente el desarrollo de interfaces limpias y la experiencia de usuario.",
+    "p3": "También trabajo con Node.js y Firebase en el backend, lo que me permite entender el stack completo y comunicarme bien con cualquier equipo."
+  },
+  "skills": {
+    "eyebrow": "Stack Técnico",
+    "frontend": {
+      "title": "Frontend & Web",
+      "desc": "Aplicaciones web modernas y responsivas con React, Vue y herramientas del ecosistema JavaScript actual.",
+      "ariaLabel": "Tecnologías de frontend"
+    },
+    "mobile": {
+      "title": "Mobile",
+      "desc": "Apps nativas multiplataforma para iOS y Android con React Native, Expo y Capacitor.",
+      "ariaLabel": "Tecnologías mobile"
+    },
+    "backend": {
+      "title": "Backend & Servicios",
+      "desc": "Servidores, APIs y servicios en la nube para conectar el frontend con datos en tiempo real.",
+      "ariaLabel": "Tecnologías de backend y servicios"
+    }
+  },
+  "projects": {
+    "badge": "Proyectos",
+    "flowcash": {
+      "desc": "App de finanzas personales para móvil. Registro de ingresos y gastos, visualización con gráficos y autenticación con Firebase.",
+      "linkText": "En desarrollo"
+    },
+    "dragonbote": {
+      "desc": "App de entrenamiento para equipos de dragon boat. Gestión de rutinas, seguimiento de progreso y sincronización en tiempo real con Firebase.",
+      "linkText": "En desarrollo"
+    },
+    "lamaleta": {
+      "desc": "Plataforma web con internacionalización (ES/EN), administración de contenido vía Firebase y panel de administración independiente.",
+      "linkText": "Ver proyecto →"
+    },
+    "tagsLabel": "Tecnologías",
+    "ghostTxt": "Más proyectos en GitHub",
+    "ghostAriaLabel": "Ver más proyectos de Rosario Ruiz en GitHub (abre en nueva pestaña)",
+    "soon": "Próximamente",
+    "footer": "Diseñado y desarrollado por"
+  },
+  "contact": {
+    "badge": "Contacto",
+    "h2a": "¿Trabajamos",
+    "h2b": "juntos?",
+    "emailAriaLabel": "Enviar email a rosarioma.ruiz@gmail.com",
+    "githubAriaLabel": "Perfil de GitHub de Rosario Ruiz (abre en nueva pestaña)",
+    "linkedinAriaLabel": "Perfil de LinkedIn de Rosario Ruiz (abre en nueva pestaña)",
+    "whatsappAriaLabel": "Contactar por WhatsApp (abre en nueva pestaña)"
+  },
+  "footer": {
+    "text": "Diseñado y desarrollado por"
+  }
+}

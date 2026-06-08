@@ -2,13 +2,13 @@
   <div class="port">
 
     <!-- ── SKIP LINK (a11y) ──────────────────────────────────────────── -->
-    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <a href="#contenido" class="skip-link">{{ t('nav.skipLink') }}</a>
 
     <!-- ── NAV ──────────────────────────────────────────────────────── -->
     <nav
       class="nav"
       :class="{ 'nav--solid': scrolled }"
-      aria-label="Navegación principal"
+      :aria-label="t('nav.mainNav')"
     >
       <div class="nav__w">
         <a href="#hero" class="nav__brand" @click.prevent="scrollTo('hero')">
@@ -16,48 +16,59 @@
           RR — DEV
         </a>
 
-        <ul class="nav__list" :class="{ 'is-open': menuOpen }" role="list">
-          <li>
-            <a href="#sobre-mi"
-               @click.prevent="scrollTo('sobre-mi'); closeMenu()"
-               :class="{ active: activeSection === 'sobre-mi' }">
-              Sobre mí
-            </a>
-          </li>
-          <li>
-            <a href="#skills"
-               @click.prevent="scrollTo('skills'); closeMenu()"
-               :class="{ active: activeSection === 'skills' }">
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#proyectos"
-               @click.prevent="scrollTo('proyectos'); closeMenu()"
-               :class="{ active: activeSection === 'proyectos' }">
-              Proyectos
-            </a>
-          </li>
-          <li>
-            <a href="#contacto"
-               @click.prevent="scrollTo('contacto'); closeMenu()"
-               :class="{ active: activeSection === 'contacto' }">
-              Contacto
-            </a>
-          </li>
-        </ul>
+        <div class="nav__right">
+          <ul class="nav__list" :class="{ 'is-open': menuOpen }" role="list">
+            <li>
+              <a href="#sobre-mi"
+                 @click.prevent="scrollTo('sobre-mi'); closeMenu()"
+                 :class="{ active: activeSection === 'sobre-mi' }">
+                {{ t('nav.about') }}
+              </a>
+            </li>
+            <li>
+              <a href="#skills"
+                 @click.prevent="scrollTo('skills'); closeMenu()"
+                 :class="{ active: activeSection === 'skills' }">
+                {{ t('nav.skills') }}
+              </a>
+            </li>
+            <li>
+              <a href="#proyectos"
+                 @click.prevent="scrollTo('proyectos'); closeMenu()"
+                 :class="{ active: activeSection === 'proyectos' }">
+                {{ t('nav.projects') }}
+              </a>
+            </li>
+            <li>
+              <a href="#contacto"
+                 @click.prevent="scrollTo('contacto'); closeMenu()"
+                 :class="{ active: activeSection === 'contacto' }">
+                {{ t('nav.contact') }}
+              </a>
+            </li>
+          </ul>
 
-        <!-- Hamburger (solo mobile) -->
-        <button
-          class="nav__toggle"
-          :aria-expanded="String(menuOpen)"
-          :aria-label="menuOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
-          @click="menuOpen = !menuOpen"
-        >
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-        </button>
+          <!-- Selector de idioma -->
+          <button
+            class="lang-btn"
+            @click="toggleLocale"
+            :aria-label="t('nav.switchLang')"
+          >
+            {{ locale === 'es' ? 'EN' : 'ES' }}
+          </button>
+
+          <!-- Hamburger (solo mobile) -->
+          <button
+            class="nav__toggle"
+            :aria-expanded="String(menuOpen)"
+            :aria-label="menuOpen ? t('nav.closeMenu') : t('nav.openMenu')"
+            @click="menuOpen = !menuOpen"
+          >
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -69,24 +80,20 @@
         <div class="hero__w">
 
           <div class="hero__body fade-in">
-            <p class="hero__eyebrow" aria-hidden="true">Portfolio — 2025</p>
+            <p class="hero__eyebrow" aria-hidden="true">{{ t('hero.eyebrow') }}</p>
             <h1 class="hero__h1" id="hero-titulo">
               <span class="hero__h1-a">Rosario</span>
               <span class="hero__h1-b">Ruiz</span>
             </h1>
-            <p class="hero__bio">
-              Desarrolladora de Software Junior —
-              apasionada por construir interfaces limpias
-              y sistemas que funcionan.
-            </p>
+            <p class="hero__bio">{{ t('hero.bio') }}</p>
             <div class="hero__actions">
               <a href="#proyectos" class="btn-filled"
                  @click.prevent="scrollTo('proyectos')">
-                Ver proyectos
+                {{ t('hero.ctaProjects') }}
               </a>
               <a href="#contacto" class="btn-plain"
                  @click.prevent="scrollTo('contacto')">
-                Hablemos
+                {{ t('hero.ctaContact') }}
               </a>
             </div>
           </div>
@@ -94,11 +101,9 @@
           <div class="hero__ring" aria-hidden="true"></div>
 
           <div class="hero__cards fade-in" style="transition-delay: 0.15s">
-            <!-- FIX 5: overflow-x en code-card (ver CSS) -->
-            <!-- FIX a11y: role + aria-label en el bloque de código -->
             <div class="code-card"
                  role="region"
-                 aria-label="Snippet de código con el perfil de Rosario">
+                 :aria-label="t('hero.codeLabel')">
               <pre class="code-pre" v-html="codeSnippet"></pre>
             </div>
             <div class="rr-card" aria-hidden="true">
@@ -114,32 +119,31 @@
         <div class="sec-w">
           <div class="sec-badge fade-in" aria-hidden="true">
             <span class="sec-badge__dot"></span>
-            <span class="sec-badge__txt">Sobre mí</span>
+            <span class="sec-badge__txt">{{ t('about.badge') }}</span>
             <span class="sec-badge__rule"></span>
             <span class="sec-badge__ring"></span>
           </div>
           <div class="sobre__grid">
             <div class="sobre__left fade-in">
-              <!-- FIX a11y: h2 real del heading de la sección -->
               <h2 class="sobre__h2" id="sobre-titulo">
-                Código limpio,<br>
-                <em>soluciones reales</em>
+                {{ t('about.h2a') }}<br>
+                <em>{{ t('about.h2b') }}</em>
               </h2>
               <div class="stats">
                 <div class="stat">
-                  <span class="stat__n" aria-label="Más de 1 año">1+</span>
-                  <span class="stat__l">Año en desarrollo</span>
+                  <span class="stat__n" :aria-label="t('about.stat1AriaLabel')">1+</span>
+                  <span class="stat__l">{{ t('about.stat1Label') }}</span>
                 </div>
                 <div class="stat">
                   <span class="stat__n">4</span>
-                  <span class="stat__l">Tecnologías core</span>
+                  <span class="stat__l">{{ t('about.stat2Label') }}</span>
                 </div>
               </div>
             </div>
             <div class="sobre__right fade-in" style="transition-delay: 0.1s">
-              <p>Soy Rosario, desarrolladora de software con enfoque en frontend y mobile. Me especializo en React, React Native y Vue.js para construir aplicaciones web y móviles modernas.</p>
-              <p>Actualmente en mi primer rol profesional como Junior Developer, donde aprendo rápido y aporto desde el primer día. Me interesa especialmente el desarrollo de interfaces limpias y la experiencia de usuario.</p>
-              <p>También trabajo con Node.js y Firebase en el backend, lo que me permite entender el stack completo y comunicarme bien con cualquier equipo.</p>
+              <p>{{ t('about.p1') }}</p>
+              <p>{{ t('about.p2') }}</p>
+              <p>{{ t('about.p3') }}</p>
             </div>
           </div>
         </div>
@@ -148,30 +152,29 @@
       <!-- SKILLS ─────────────────────────────────────────────────────── -->
       <section class="skills" id="skills" aria-labelledby="skills-titulo">
         <div class="sec-w">
-          <!-- FIX a11y heading: <p> → <h2> -->
-          <h2 class="skills__eyebrow fade-in" id="skills-titulo">Stack Técnico</h2>
+          <h2 class="skills__eyebrow fade-in" id="skills-titulo">{{ t('skills.eyebrow') }}</h2>
           <div class="skills__grid">
             <div class="skill-col fade-in">
               <span class="skill-ico" aria-hidden="true">{ }</span>
-              <h3 class="skill-h3">Frontend & Web</h3>
-              <p class="skill-p">Aplicaciones web modernas y responsivas con React, Vue y herramientas del ecosistema JavaScript actual.</p>
-              <div class="skill-tags" aria-label="Tecnologías de frontend">
+              <h3 class="skill-h3">{{ t('skills.frontend.title') }}</h3>
+              <p class="skill-p">{{ t('skills.frontend.desc') }}</p>
+              <div class="skill-tags" :aria-label="t('skills.frontend.ariaLabel')">
                 <span>JAVASCRIPT</span><span>TYPESCRIPT</span><span>REACT</span><span>VUE.JS</span><span>QUASAR</span><span>VITE</span>
               </div>
             </div>
             <div class="skill-col fade-in" style="transition-delay: 0.1s">
               <span class="skill-ico" aria-hidden="true">&lt;/&gt;</span>
-              <h3 class="skill-h3">Mobile</h3>
-              <p class="skill-p">Apps nativas multiplataforma para iOS y Android con React Native, Expo y Capacitor.</p>
-              <div class="skill-tags" aria-label="Tecnologías mobile">
+              <h3 class="skill-h3">{{ t('skills.mobile.title') }}</h3>
+              <p class="skill-p">{{ t('skills.mobile.desc') }}</p>
+              <div class="skill-tags" :aria-label="t('skills.mobile.ariaLabel')">
                 <span>REACT NATIVE</span><span>EXPO</span><span>CAPACITOR</span>
               </div>
             </div>
             <div class="skill-col fade-in" style="transition-delay: 0.2s">
               <span class="skill-ico skill-ico--acc" aria-hidden="true">⚡</span>
-              <h3 class="skill-h3">Backend & Servicios</h3>
-              <p class="skill-p">Servidores, APIs y servicios en la nube para conectar el frontend con datos en tiempo real.</p>
-              <div class="skill-tags" aria-label="Tecnologías de backend y servicios">
+              <h3 class="skill-h3">{{ t('skills.backend.title') }}</h3>
+              <p class="skill-p">{{ t('skills.backend.desc') }}</p>
+              <div class="skill-tags" :aria-label="t('skills.backend.ariaLabel')">
                 <span>NODE.JS</span><span>EXPRESS</span><span>FIREBASE</span><span>SQL</span><span>MARIADB</span>
               </div>
             </div>
@@ -184,47 +187,44 @@
         <div class="sec-w">
           <div class="sec-badge fade-in" aria-hidden="true">
             <span class="sec-badge__dot"></span>
-            <!-- FIX a11y: heading real del section para screen readers -->
-            <h2 class="sec-badge__txt" id="proy-titulo">Proyectos</h2>
+            <h2 class="sec-badge__txt" id="proy-titulo">{{ t('projects.badge') }}</h2>
             <span class="sec-badge__rule"></span>
             <span class="sec-badge__ring"></span>
           </div>
           <div class="proy__grid">
-            <!-- FIX 1: key corregido para objeto ghost (p.n ?? 'ghost') -->
             <article
               v-for="p in projects"
-              :key="p.n ?? 'ghost'"
+              :key="p.key ?? 'ghost'"
               class="proy-card fade-in"
               :class="{ 'proy-card--ghost': p.ghost }"
             >
               <template v-if="!p.ghost">
                 <span class="proy-card__cat">{{ p.n }} — {{ p.cat }}</span>
                 <h3 class="proy-card__h3">{{ p.title }}</h3>
-                <p class="proy-card__p">{{ p.desc }}</p>
-                <div class="proy-card__tags" :aria-label="`Tecnologías: ${p.tags.join(', ')}`">
-                  <span v-for="t in p.tags" :key="t">{{ t }}</span>
+                <p class="proy-card__p">{{ t(`projects.${p.key}.desc`) }}</p>
+                <div class="proy-card__tags" :aria-label="`${t('projects.tagsLabel')}: ${p.tags.join(', ')}`">
+                  <span v-for="tag in p.tags" :key="tag">{{ tag }}</span>
                 </div>
-                <!-- FIX 4: href="#" → enlace condicional, sin scroll al top -->
                 <a v-if="p.github && p.github !== '#'"
                    :href="p.github"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="proy-card__link"
-                   :aria-label="`${p.linkText} — ${p.title} (abre en nueva pestaña)`">
-                  {{ p.linkText }}
+                   :aria-label="`${t(`projects.${p.key}.linkText`)} — ${p.title}`">
+                  {{ t(`projects.${p.key}.linkText`) }}
                 </a>
                 <span v-else class="proy-card__link proy-card__link--soon">
-                  {{ p.linkText || 'Próximamente' }}
+                  {{ t(`projects.${p.key}.linkText`) }}
                 </span>
               </template>
               <template v-else>
                 <span class="proy-card__plus" aria-hidden="true">+</span>
-                <p class="proy-card__ghost-txt">Más proyectos en GitHub</p>
+                <p class="proy-card__ghost-txt">{{ t('projects.ghostTxt') }}</p>
                 <a :href="p.github"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="proy-card__ghost-link"
-                   aria-label="Ver más proyectos de Rosario Ruiz en GitHub (abre en nueva pestaña)">
+                   :aria-label="t('projects.ghostAriaLabel')">
                   github.com/roruiz93 →
                 </a>
               </template>
@@ -238,37 +238,36 @@
         <div class="sec-w">
           <div class="sec-badge sec-badge--center fade-in" aria-hidden="true">
             <span class="sec-badge__dot"></span>
-            <span class="sec-badge__txt">Contacto</span>
+            <span class="sec-badge__txt">{{ t('contact.badge') }}</span>
             <span class="sec-badge__rule"></span>
           </div>
           <div class="contacto__body fade-in">
             <h2 class="contacto__h2" id="contacto-titulo">
-              ¿Trabajamos<br>
-              <em>juntos?</em>
+              {{ t('contact.h2a') }}<br>
+              <em>{{ t('contact.h2b') }}</em>
             </h2>
             <a href="mailto:rosarioma.ruiz@gmail.com"
                class="contacto__email"
-               aria-label="Enviar email a rosarioma.ruiz@gmail.com">
+               :aria-label="t('contact.emailAriaLabel')">
               rosarioma.ruiz@gmail.com
             </a>
             <div class="contacto__social">
-              <!-- FIX a11y: aria-label descriptivo en cada red social -->
               <a href="https://github.com/roruiz93"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="Perfil de GitHub de Rosario Ruiz (abre en nueva pestaña)">
+                 :aria-label="t('contact.githubAriaLabel')">
                 GitHub
               </a>
               <a href="https://www.linkedin.com/in/rosario-ruiz-544338206/"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="Perfil de LinkedIn de Rosario Ruiz (abre en nueva pestaña)">
+                 :aria-label="t('contact.linkedinAriaLabel')">
                 LinkedIn
               </a>
               <a href="https://wa.me/"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="Contactar por WhatsApp (abre en nueva pestaña)">
+                 :aria-label="t('contact.whatsappAriaLabel')">
                 WhatsApp
               </a>
             </div>
@@ -281,7 +280,7 @@
     <!-- ── FOOTER ────────────────────────────────────────────────────── -->
     <footer class="footer">
       <div class="sec-w">
-        <p>Diseñado y desarrollado por <strong>Rosario Ruiz</strong> · {{ year }}</p>
+        <p>{{ t('footer.text') }} <strong>Rosario Ruiz</strong> · {{ year }}</p>
       </div>
     </footer>
 
@@ -289,71 +288,71 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n()
 
 const year = new Date().getFullYear()
-const scrolled    = ref(false)
+const scrolled      = ref(false)
 const activeSection = ref('')
-const menuOpen    = ref(false)
+const menuOpen      = ref(false)
 
-// FIX 2: referencias para cleanup en onBeforeUnmount
 let _fadeObserver    = null
 let _sectionObserver = null
 let _scrollHandler   = null
 
-// FIX UX: scroll JS en lugar de href nativo (evita conflicto con hash router)
 function scrollTo (id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
 function closeMenu () {
   menuOpen.value = false
 }
+function toggleLocale () {
+  locale.value = locale.value === 'es' ? 'en' : 'es'
+}
 
 // v-html seguro: contenido hardcodeado, nunca viene de usuario
-const codeSnippet = `<span class="cc-cmt">// rosario.js</span>
+const codeSnippet = computed(() => {
+  const isEN = locale.value === 'en'
+  return `<span class="cc-cmt">// rosario.js</span>
 <span class="cc-kw">const</span> dev = {
-  nombre: <span class="cc-str">'Rosario'</span>,
-  rol: <span class="cc-str">'Junior Dev'</span>,
+  ${isEN ? 'name' : 'nombre'}: <span class="cc-str">'Rosario'</span>,
+  ${isEN ? 'role' : 'rol'}: <span class="cc-str">'Junior Dev'</span>,
   stack: [
     <span class="cc-str">'React Native'</span>,
     <span class="cc-str">'Vue'</span>, <span class="cc-str">'Quasar'</span>,
     <span class="cc-str">'Firebase'</span>,
     <span class="cc-str">'Node.js'</span>
   ],
-  disponible: <span class="cc-bool">true</span>
+  ${isEN ? 'available' : 'disponible'}: <span class="cc-bool">true</span>
 }
 
 <span class="cc-kw">export default</span> dev`
+})
 
 const projects = [
   {
-    n: '01', cat: 'Mobile App',
+    n: '01', cat: 'Mobile App', key: 'flowcash',
     title: 'FlowCash',
-    desc: 'App de finanzas personales para móvil. Registro de ingresos y gastos, visualización con gráficos y autenticación con Firebase.',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'JAVASCRIPT'],
-    github: '#',
-    linkText: 'En desarrollo'
+    github: '#'
   },
   {
-    n: '02', cat: 'Mobile App',
+    n: '02', cat: 'Mobile App', key: 'dragonbote',
     title: 'Dragon Bote Training',
-    desc: 'App de entrenamiento para equipos de dragon boat. Gestión de rutinas, seguimiento de progreso y sincronización en tiempo real con Firebase.',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'ZUSTAND'],
-    github: '#',
-    linkText: 'En desarrollo'
+    github: '#'
   },
   {
-    n: '03', cat: 'Web App',
+    n: '03', cat: 'Web App', key: 'lamaleta',
     title: 'La Maleta Web',
-    desc: 'Plataforma web con internacionalización (ES/EN), administración de contenido vía Firebase y panel de administración independiente.',
     tags: ['VITE', 'JAVASCRIPT', 'FIREBASE', 'I18N'],
-    github: 'https://la-maleta-e038c.web.app',
-    linkText: 'Ver proyecto →'
+    github: 'https://la-maleta-e038c.web.app'
   },
-  // FIX 1: objeto ghost ahora tiene n para que :key="p.n ?? 'ghost'" funcione
   {
     ghost: true,
-    n: null,
+    key: null,
     github: 'https://github.com/roruiz93'
   }
 ]
@@ -375,7 +374,6 @@ onMounted(() => {
   fadeEls.forEach(el => _fadeObserver.observe(el))
 
   // ── Active nav por sección ─────────────────────────────────────────
-  // FIX UX: hero ahora incluido en el observer
   const sections = document.querySelectorAll('section[id]')
   _sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -392,7 +390,6 @@ onMounted(() => {
   window.addEventListener('scroll', _scrollHandler, { passive: true })
 })
 
-// FIX 2: cleanup de todos los listeners y observers
 onBeforeUnmount(() => {
   if (_scrollHandler)   window.removeEventListener('scroll', _scrollHandler)
   if (_fadeObserver)    _fadeObserver.disconnect()
@@ -467,7 +464,6 @@ onBeforeUnmount(() => {
 /* ── NAV ─────────────────────────────────────────────────────────────── */
 .nav {
   position: fixed;
-  /* FIX 3: inset-inline → left/right (mayor compatibilidad) */
   top: 0;
   left: 0;
   right: 0;
@@ -506,6 +502,13 @@ onBeforeUnmount(() => {
   object-fit: cover;
   flex-shrink: 0;
 }
+
+/* Lado derecho del nav: lista + lang + hamburguesa */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .nav__list {
   display: flex;
   gap: 2.5rem;
@@ -524,6 +527,27 @@ onBeforeUnmount(() => {
 }
 .nav__list a:hover,
 .nav__list a.active { color: var(--txt); }
+
+/* Botón selector de idioma */
+.lang-btn {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--txt-2);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  flex-shrink: 0;
+  font-family: var(--sans);
+}
+.lang-btn:hover {
+  color: var(--txt);
+  border-color: var(--txt-2);
+}
 
 /* Hamburger toggle */
 .nav__toggle {
@@ -562,7 +586,6 @@ onBeforeUnmount(() => {
 
 /* ── HERO ────────────────────────────────────────────────────────────── */
 .hero {
-  /* FIX UX: min-height con fallback para iOS Safari */
   min-height: 100vh;
   min-height: 100svh;
   padding: 8rem 2rem 5rem;
@@ -640,7 +663,7 @@ onBeforeUnmount(() => {
   gap: 0.85rem;
 }
 
-/* Code card — FIX 5: overflow-x: auto para no desbordar en mobile */
+/* Code card */
 .code-card {
   background: var(--bg-code);
   border-radius: 10px;
@@ -724,7 +747,6 @@ onBeforeUnmount(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--txt-2);
-  /* FIX: reset heading styles cuando sec-badge__txt es h2 */
   font-family: var(--sans);
   margin: 0;
   line-height: inherit;
@@ -798,7 +820,6 @@ onBeforeUnmount(() => {
 
 /* ── SKILLS ──────────────────────────────────────────────────────────── */
 .skills { background: var(--dark); padding: 7rem 2rem; }
-/* FIX a11y: h2 con aspecto visual de eyebrow */
 .skills__eyebrow {
   font-size: 0.72rem;
   font-weight: 500;
@@ -924,7 +945,6 @@ onBeforeUnmount(() => {
   transition: color var(--dur) var(--ease);
 }
 .proy-card__link:hover { color: var(--txt); }
-/* FIX 4: estado visual para links placeholder */
 .proy-card__link--soon {
   color: var(--txt-muted);
   cursor: default;
@@ -1003,7 +1023,6 @@ onBeforeUnmount(() => {
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* FIX UX: respetar preferencia de sin animaciones */
 @media (prefers-reduced-motion: reduce) {
   .fade-in {
     opacity: 1 !important;
@@ -1025,7 +1044,6 @@ onBeforeUnmount(() => {
   .proy__grid   { grid-template-columns: 1fr; }
 }
 
-/* FIX UX: menú hamburguesa en mobile */
 @media (max-width: 640px) {
   .nav__toggle { display: flex; }
 
