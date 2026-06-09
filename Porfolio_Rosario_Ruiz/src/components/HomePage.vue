@@ -264,7 +264,7 @@
                  :aria-label="t('contact.linkedinAriaLabel')">
                 LinkedIn
               </a>
-              <a href="https://wa.me/"
+              <a href="https://wa.me/5491161668744"
                  target="_blank"
                  rel="noopener noreferrer"
                  :aria-label="t('contact.whatsappAriaLabel')">
@@ -289,9 +289,9 @@
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useTranslation } from '../composables/useTranslation.js'
 
-const { t, locale } = useI18n()
+const { t, locale } = useTranslation()
 
 const year = new Date().getFullYear()
 const scrolled      = ref(false)
