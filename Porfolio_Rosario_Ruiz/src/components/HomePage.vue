@@ -95,6 +95,13 @@
                  @click.prevent="scrollTo('contacto')">
                 {{ t('hero.ctaContact') }}
               </a>
+              <a :href="cvUrl"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-cv"
+                 :aria-label="t('hero.ctaCVAriaLabel')">
+                {{ t('hero.ctaCV') }} ↓
+              </a>
             </div>
           </div>
 
@@ -311,6 +318,10 @@ function closeMenu () {
 function toggleLocale () {
   locale.value = locale.value === 'es' ? 'en' : 'es'
 }
+
+const cvUrl = computed(() =>
+  locale.value === 'en' ? '/Rosario_Ruiz_CV_EN.pdf' : '/Rosario_Ruiz_CV_ES.pdf'
+)
 
 // v-html seguro: contenido hardcodeado, nunca viene de usuario
 const codeSnippet = computed(() => {
@@ -725,6 +736,19 @@ onBeforeUnmount(() => {
   transition: color var(--dur) var(--ease);
 }
 .btn-plain:hover { color: var(--txt); }
+.btn-cv {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--txt-2);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn-cv:hover { color: var(--txt); border-color: var(--txt-2); }
 
 /* ── SECTION BADGE ───────────────────────────────────────────────────── */
 .sec-badge {
