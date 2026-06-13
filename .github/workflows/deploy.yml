@@ -1,0 +1,37 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Porfolio_Rosario_Ruiz/package-lock.json
+
+      - name: Install dependencies
+        working-directory: Porfolio_Rosario_Ruiz
+        run: npm install
+
+      - name: Build
+        working-directory: Porfolio_Rosario_Ruiz
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: rr-dev-portfolio
+          channelId: live
+          entryPoint: Porfolio_Rosario_Ruiz
