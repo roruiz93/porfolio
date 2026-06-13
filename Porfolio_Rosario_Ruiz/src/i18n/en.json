@@ -11,8 +11,8 @@
     "switchLang": "Cambiar a español"
   },
   "hero": {
-    "eyebrow": "Portfolio — 2025",
-    "bio": "Junior Software Developer — passionate about building clean interfaces and systems that work.",
+    "eyebrow": "Portfolio — 2026",
+    "bio": "Full Stack Developer — building production apps end-to-end with React, React Native and Firebase.",
     "ctaProjects": "See projects",
     "ctaContact": "Let's talk",
     "ctaCV": "Download CV",
@@ -24,11 +24,11 @@
     "h2a": "Clean code,",
     "h2b": "real solutions",
     "stat1AriaLabel": "Over 1 year",
-    "stat1Label": "Year in development",
-    "stat2Label": "Core technologies",
-    "p1": "I'm Rosario, a software developer focused on frontend and mobile. I specialize in React, React Native and Vue.js to build modern web and mobile applications.",
-    "p2": "Currently in my first professional role as a Junior Developer, where I learn fast and contribute from day one. I'm especially interested in building clean interfaces and great user experiences.",
-    "p3": "I also work with Node.js and Firebase on the backend, which allows me to understand the full stack and collaborate well with any team."
+    "stat1Label": "Year as developer",
+    "stat2Label": "Years as team lead",
+    "p1": "I'm Rosario, a Full Stack Developer with a degree in Programming from UTN FRGP. I build production apps end-to-end — from architecture to deploy — using React Native, Firebase and Node.js.",
+    "p2": "I worked as a Junior Developer at Body Health SA, developing and maintaining web apps with React, integrating REST APIs, and resolving complex bugs including memory leaks. Before that, I led an 8-person team for 3 years.",
+    "p3": "I'm methodical, self-managed and comfortable in both remote and on-site environments. Currently deepening my TypeScript skills while actively looking for new opportunities."
   },
   "skills": {
     "eyebrow": "Tech Stack",

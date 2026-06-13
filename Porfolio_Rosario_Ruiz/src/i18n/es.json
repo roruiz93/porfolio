@@ -11,8 +11,8 @@
     "switchLang": "Switch to English"
   },
   "hero": {
-    "eyebrow": "Portfolio — 2025",
-    "bio": "Desarrolladora de Software Junior — apasionada por construir interfaces limpias y sistemas que funcionan.",
+    "eyebrow": "Portfolio — 2026",
+    "bio": "Desarrolladora Full Stack — construyo aplicaciones en producción end-to-end con React, React Native y Firebase.",
     "ctaProjects": "Ver proyectos",
     "ctaContact": "Hablemos",
     "ctaCV": "Descargar CV",
@@ -24,11 +24,11 @@
     "h2a": "Código limpio,",
     "h2b": "soluciones reales",
     "stat1AriaLabel": "Más de 1 año",
-    "stat1Label": "Año en desarrollo",
-    "stat2Label": "Tecnologías core",
-    "p1": "Soy Rosario, desarrolladora de software con enfoque en frontend y mobile. Me especializo en React, React Native y Vue.js para construir aplicaciones web y móviles modernas.",
-    "p2": "Actualmente en mi primer rol profesional como Junior Developer, donde aprendo rápido y aporto desde el primer día. Me interesa especialmente el desarrollo de interfaces limpias y la experiencia de usuario.",
-    "p3": "También trabajo con Node.js y Firebase en el backend, lo que me permite entender el stack completo y comunicarme bien con cualquier equipo."
+    "stat1Label": "Año como desarrolladora",
+    "stat2Label": "Años de liderazgo",
+    "p1": "Soy Rosario, Desarrolladora Full Stack con título en Programación de UTN FRGP. Construyo aplicaciones en producción end-to-end — desde la arquitectura hasta el deploy — con React Native, Firebase y Node.js.",
+    "p2": "Trabajé como Desarrolladora Junior en Body Health SA, donde desarrollé y mantuve apps web con React, integré APIs REST y resolví bugs complejos incluyendo memory leaks. Antes de eso, lideré un equipo de 8 personas durante 3 años.",
+    "p3": "Soy metódica, autogestionada y me adapto tanto al trabajo remoto como presencial. Actualmente profundizando en TypeScript y en búsqueda activa de nuevas oportunidades."
   },
   "skills": {
     "eyebrow": "Stack Técnico",

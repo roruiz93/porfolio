@@ -142,7 +142,7 @@
                   <span class="stat__l">{{ t('about.stat1Label') }}</span>
                 </div>
                 <div class="stat">
-                  <span class="stat__n">4</span>
+                  <span class="stat__n">3</span>
                   <span class="stat__l">{{ t('about.stat2Label') }}</span>
                 </div>
               </div>
@@ -166,7 +166,7 @@
               <h3 class="skill-h3">{{ t('skills.frontend.title') }}</h3>
               <p class="skill-p">{{ t('skills.frontend.desc') }}</p>
               <div class="skill-tags" :aria-label="t('skills.frontend.ariaLabel')">
-                <span>JAVASCRIPT</span><span>TYPESCRIPT</span><span>REACT</span><span>VUE.JS</span><span>QUASAR</span><span>VITE</span>
+                <span>JAVASCRIPT</span><span>TYPESCRIPT</span><span>PYTHON</span><span>HTML/CSS</span><span>REACT</span><span>VUE.JS</span><span>QUASAR</span><span>VITE</span><span>FIGMA</span>
               </div>
             </div>
             <div class="skill-col fade-in" style="transition-delay: 0.1s">
@@ -174,7 +174,7 @@
               <h3 class="skill-h3">{{ t('skills.mobile.title') }}</h3>
               <p class="skill-p">{{ t('skills.mobile.desc') }}</p>
               <div class="skill-tags" :aria-label="t('skills.mobile.ariaLabel')">
-                <span>REACT NATIVE</span><span>EXPO</span><span>CAPACITOR</span>
+                <span>REACT NATIVE</span><span>EXPO</span><span>CAPACITOR</span><span>ANDROID STUDIO</span>
               </div>
             </div>
             <div class="skill-col fade-in" style="transition-delay: 0.2s">
@@ -182,7 +182,7 @@
               <h3 class="skill-h3">{{ t('skills.backend.title') }}</h3>
               <p class="skill-p">{{ t('skills.backend.desc') }}</p>
               <div class="skill-tags" :aria-label="t('skills.backend.ariaLabel')">
-                <span>NODE.JS</span><span>EXPRESS</span><span>FIREBASE</span><span>SQL</span><span>MARIADB</span>
+                <span>NODE.JS</span><span>EXPRESS</span><span>FIREBASE</span><span>REST APIS</span><span>SQL</span><span>MARIADB</span><span>GIT/GITHUB</span>
               </div>
             </div>
           </div>
@@ -329,12 +329,11 @@ const codeSnippet = computed(() => {
   return `<span class="cc-cmt">// rosario.js</span>
 <span class="cc-kw">const</span> dev = {
   ${isEN ? 'name' : 'nombre'}: <span class="cc-str">'Rosario'</span>,
-  ${isEN ? 'role' : 'rol'}: <span class="cc-str">'Junior Dev'</span>,
+  ${isEN ? 'role' : 'rol'}: <span class="cc-str">'Full Stack Dev'</span>,
   stack: [
-    <span class="cc-str">'React Native'</span>,
-    <span class="cc-str">'Vue'</span>, <span class="cc-str">'Quasar'</span>,
-    <span class="cc-str">'Firebase'</span>,
-    <span class="cc-str">'Node.js'</span>
+    <span class="cc-str">'React'</span>, <span class="cc-str">'React Native'</span>,
+    <span class="cc-str">'Node.js'</span>, <span class="cc-str">'Firebase'</span>,
+    <span class="cc-str">'Vue'</span>, <span class="cc-str">'Python'</span>
   ],
   ${isEN ? 'available' : 'disponible'}: <span class="cc-bool">true</span>
 }
