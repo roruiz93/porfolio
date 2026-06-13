@@ -189,6 +189,40 @@
         </div>
       </section>
 
+      <!-- EDUCACIÓN ──────────────────────────────────────────────────── -->
+      <section class="edu" id="educacion" aria-labelledby="edu-titulo">
+        <div class="sec-w">
+          <div class="sec-badge fade-in" aria-hidden="true">
+            <span class="sec-badge__dot"></span>
+            <span class="sec-badge__txt" id="edu-titulo">{{ t('edu.badge') }}</span>
+            <span class="sec-badge__rule"></span>
+            <span class="sec-badge__ring"></span>
+          </div>
+          <div class="edu__list">
+            <div class="edu-item fade-in">
+              <div class="edu-item__left">
+                <span class="edu-item__year">2020 – 2024</span>
+                <span class="edu-item__tag">{{ t('edu.graduated') }}</span>
+              </div>
+              <div class="edu-item__right">
+                <h3 class="edu-item__title">{{ t('edu.degree1') }}</h3>
+                <p class="edu-item__inst">UTN FRGP</p>
+              </div>
+            </div>
+            <div class="edu-item fade-in" style="transition-delay: 0.1s">
+              <div class="edu-item__left">
+                <span class="edu-item__year">2009 – 2011</span>
+                <span class="edu-item__tag">{{ t('edu.graduated') }}</span>
+              </div>
+              <div class="edu-item__right">
+                <h3 class="edu-item__title">{{ t('edu.degree2') }}</h3>
+                <p class="edu-item__inst">Colegio San Ramón</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PROYECTOS ──────────────────────────────────────────────────── -->
       <section class="proy" id="proyectos" aria-labelledby="proy-titulo">
         <div class="sec-w">
@@ -346,13 +380,13 @@ const projects = [
     n: '01', cat: 'Mobile App', key: 'flowcash',
     title: 'FlowCash',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'JAVASCRIPT'],
-    github: '#'
+    github: 'https://github.com/roruiz93/FlowCash'
   },
   {
     n: '02', cat: 'Mobile App', key: 'dragonbote',
     title: 'Dragon Bote Training',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'ZUSTAND'],
-    github: '#'
+    github: 'https://github.com/roruiz93/DragonBoatTraining'
   },
   {
     n: '03', cat: 'Web App', key: 'lamaleta',
@@ -896,6 +930,55 @@ onBeforeUnmount(() => {
 }
 .skill-tags span:hover { border-color: var(--gold); color: var(--gold); }
 
+/* ── EDUCACIÓN ───────────────────────────────────────────────────────── */
+.edu { padding: 7rem 2rem; background: var(--bg-card); }
+.edu__list { display: flex; flex-direction: column; gap: 0; }
+.edu-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-item__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.edu-item__year {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--txt-muted);
+  letter-spacing: 0.05em;
+}
+.edu-item__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  padding: 0.2rem 0.55rem;
+  width: fit-content;
+}
+.edu-item__title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--txt);
+  margin-bottom: 0.3rem;
+}
+.edu-item__inst {
+  font-size: 0.85rem;
+  color: var(--txt-2);
+  font-weight: 300;
+}
+
 /* ── PROYECTOS ───────────────────────────────────────────────────────── */
 .proy { padding: 7rem 2rem; }
 .proy__grid {
@@ -1064,6 +1147,7 @@ onBeforeUnmount(() => {
   .skill-col    { border-right: none; border-bottom: 1px solid var(--dark-b); padding: 2.5rem 0; }
   .skill-col:last-child   { border-bottom: none; }
   .skill-col:nth-child(2) { padding-left: 0; }
+  .edu-item     { grid-template-columns: 1fr; gap: 0.5rem; }
   .proy__grid   { grid-template-columns: 1fr; }
 }
 

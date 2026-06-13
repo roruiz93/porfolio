@@ -48,15 +48,21 @@
       "ariaLabel": "Tecnologías de backend y servicios"
     }
   },
+  "edu": {
+    "badge": "Educación",
+    "graduated": "Egresada",
+    "degree1": "Técnica Superior en Programación",
+    "degree2": "Bachiller en Ciencias Naturales"
+  },
   "projects": {
     "badge": "Proyectos",
     "flowcash": {
       "desc": "App de finanzas personales para móvil. Registro de ingresos y gastos, visualización con gráficos y autenticación con Firebase.",
-      "linkText": "En desarrollo"
+      "linkText": "Ver repo →"
     },
     "dragonbote": {
       "desc": "App de entrenamiento para equipos de dragon boat. Gestión de rutinas, seguimiento de progreso y sincronización en tiempo real con Firebase.",
-      "linkText": "En desarrollo"
+      "linkText": "Ver repo →"
     },
     "lamaleta": {
       "desc": "Plataforma web con internacionalización (ES/EN), administración de contenido vía Firebase y panel de administración independiente.",

@@ -48,15 +48,21 @@
       "ariaLabel": "Backend and services technologies"
     }
   },
+  "edu": {
+    "badge": "Education",
+    "graduated": "Graduate",
+    "degree1": "Higher Technician in Programming",
+    "degree2": "Bachelor in Natural Sciences"
+  },
   "projects": {
     "badge": "Projects",
     "flowcash": {
       "desc": "Personal finance app for mobile. Track income and expenses, visualize data with charts and authenticate with Firebase.",
-      "linkText": "In development"
+      "linkText": "View repo →"
     },
     "dragonbote": {
       "desc": "Training app for dragon boat teams. Manage routines, track progress and sync in real time with Firebase.",
-      "linkText": "In development"
+      "linkText": "View repo →"
     },
     "lamaleta": {
       "desc": "Web platform with internationalization (ES/EN), content management via Firebase and an independent admin panel.",
