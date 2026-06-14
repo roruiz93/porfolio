@@ -156,6 +156,52 @@
         </div>
       </section>
 
+      <!-- EXPERIENCIA ────────────────────────────────────────────────── -->
+      <section class="exp" id="experiencia" aria-labelledby="exp-titulo">
+        <div class="sec-w">
+          <div class="sec-badge fade-in" aria-hidden="true">
+            <span class="sec-badge__dot"></span>
+            <span class="sec-badge__txt" id="exp-titulo">{{ t('exp.badge') }}</span>
+            <span class="sec-badge__rule"></span>
+            <span class="sec-badge__ring"></span>
+          </div>
+          <div class="exp-card fade-in">
+            <div class="exp-card__header">
+              <div>
+                <p class="exp-card__company">Body Health SA</p>
+                <p class="exp-card__total">2016 – 2026</p>
+              </div>
+              <span class="exp-card__badge">{{ t('exp.onsite') }}</span>
+            </div>
+            <div class="exp-card__divider"></div>
+            <Transition :name="slideDir" mode="out-in">
+              <div class="exp-role" :key="roleIdx">
+                <div class="exp-role__top">
+                  <div>
+                    <h3 class="exp-role__title">{{ currentRole.title }}</h3>
+                    <span class="exp-role__period">{{ currentRole.period }}</span>
+                  </div>
+                  <button class="exp-arrow" @click="nextRole" :aria-label="t('exp.nextRole')">→</button>
+                </div>
+                <ul class="exp-role__list">
+                  <li v-for="b in currentRole.bullets" :key="b">{{ b }}</li>
+                </ul>
+              </div>
+            </Transition>
+            <div class="exp-dots" :aria-label="t('exp.roleNav')">
+              <button
+                v-for="(r, i) in roles"
+                :key="i"
+                class="exp-dot"
+                :class="{ active: i === roleIdx }"
+                @click="goToRole(i)"
+                :aria-label="r.title"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- SKILLS ─────────────────────────────────────────────────────── -->
       <section class="skills" id="skills" aria-labelledby="skills-titulo">
         <div class="sec-w">
@@ -356,6 +402,84 @@ function toggleLocale () {
 const cvUrl = computed(() =>
   locale.value === 'en' ? '/Rosario_Ruiz_CV_EN.pdf' : '/Rosario_Ruiz_CV_ES.pdf'
 )
+
+const roleIdx  = ref(0)
+const slideDir = ref('slide-next')
+
+const roles = computed(() => locale.value === 'en'
+  ? [
+      {
+        title: 'Junior Software Developer',
+        period: 'Dec 2024 – May 2026',
+        bullets: [
+          'Web app development and maintenance with React and JavaScript',
+          'REST API integration (Firebase, internal services)',
+          'Resolution of complex bugs in legacy code',
+          'Diagnosis and resolution of memory leak in production'
+        ]
+      },
+      {
+        title: 'Team Leader',
+        period: '2021 – 2024',
+        bullets: [
+          'Leadership of 8-person team in electronics manufacturing',
+          'Reduction of production times through process redesign',
+          'Documentation and standardization of production processes',
+          'Team training and development'
+        ]
+      },
+      {
+        title: 'Electronics Operator',
+        period: '2016 – 2021',
+        bullets: [
+          'Quality control of medical aesthetic equipment',
+          'Complex hardware assembly'
+        ]
+      }
+    ]
+  : [
+      {
+        title: 'Desarrolladora Junior',
+        period: 'Dic 2024 – May 2026',
+        bullets: [
+          'Desarrollo y mantenimiento de apps web con React y JavaScript',
+          'Integración con APIs REST (Firebase, servicios internos)',
+          'Resolución de bugs complejos en código heredado',
+          'Diagnóstico y resolución de memory leak en producción'
+        ]
+      },
+      {
+        title: 'Líder de Sector',
+        period: '2021 – 2024',
+        bullets: [
+          'Liderazgo de equipo de 8 personas en manufactura electrónica',
+          'Reducción de tiempos de fabricación mediante rediseño de procesos',
+          'Documentación y estandarización de procesos productivos',
+          'Capacitación y desarrollo del equipo'
+        ]
+      },
+      {
+        title: 'Operaria de Electrónica',
+        period: '2016 – 2021',
+        bullets: [
+          'Control de calidad en equipos médicos estéticos',
+          'Ensamblado complejo de hardware'
+        ]
+      }
+    ]
+)
+
+const currentRole = computed(() => roles.value[roleIdx.value])
+
+function nextRole () {
+  slideDir.value = 'slide-next'
+  roleIdx.value = (roleIdx.value + 1) % roles.value.length
+}
+
+function goToRole (i) {
+  slideDir.value = i > roleIdx.value ? 'slide-next' : 'slide-prev'
+  roleIdx.value = i
+}
 
 // v-html seguro: contenido hardcodeado, nunca viene de usuario
 const codeSnippet = computed(() => {
@@ -929,6 +1053,141 @@ onBeforeUnmount(() => {
   transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 .skill-tags span:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── EXPERIENCIA ─────────────────────────────────────────────────────── */
+.exp { padding: 7rem 2rem; }
+.exp-card {
+  max-width: 680px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.exp-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.exp-card__company {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--txt);
+  margin-bottom: 0.2rem;
+}
+.exp-card__total {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--txt-muted);
+  letter-spacing: 0.05em;
+}
+.exp-card__badge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--txt-muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.2rem 0.55rem;
+  flex-shrink: 0;
+}
+.exp-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 1.75rem;
+}
+.exp-role { min-height: 180px; }
+.exp-role__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+.exp-role__title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--txt);
+  margin-bottom: 0.25rem;
+}
+.exp-role__period {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.exp-arrow {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  color: var(--txt-2);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exp-arrow:hover { color: var(--txt); border-color: var(--txt-2); transform: translateX(2px); }
+.exp-role__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.exp-role__list li {
+  font-size: 0.9rem;
+  color: var(--txt-2);
+  font-weight: 300;
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+}
+.exp-role__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+.exp-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+.exp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.exp-dot.active { background: var(--gold); transform: scale(1.3); }
+.exp-dot:hover  { background: var(--txt-muted); }
+
+/* Transiciones slide */
+.slide-next-enter-active,
+.slide-next-leave-active,
+.slide-prev-enter-active,
+.slide-prev-leave-active { transition: all 0.3s var(--ease); }
+
+.slide-next-enter-from { opacity: 0; transform: translateX(40px); }
+.slide-next-leave-to   { opacity: 0; transform: translateX(-40px); }
+.slide-prev-enter-from { opacity: 0; transform: translateX(-40px); }
+.slide-prev-leave-to   { opacity: 0; transform: translateX(40px); }
 
 /* ── EDUCACIÓN ───────────────────────────────────────────────────────── */
 .edu { padding: 7rem 2rem; background: var(--bg-card); }

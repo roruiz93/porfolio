@@ -48,6 +48,12 @@
       "ariaLabel": "Tecnologías de backend y servicios"
     }
   },
+  "exp": {
+    "badge": "Experiencia",
+    "onsite": "Presencial",
+    "nextRole": "Siguiente rol",
+    "roleNav": "Navegar entre roles"
+  },
   "edu": {
     "badge": "Educación",
     "graduated": "Egresada",
