@@ -286,6 +286,9 @@
               :class="{ 'proy-card--ghost': p.ghost }"
             >
               <template v-if="!p.ghost">
+                <div v-if="p.preview" class="proy-card__preview" aria-hidden="true">
+                  <img :src="p.preview" :alt="`Demo animada de ${p.title}`" class="proy-card__gif" loading="lazy" />
+                </div>
                 <span class="proy-card__cat">{{ p.n }} — {{ p.cat }}</span>
                 <h3 class="proy-card__h3">{{ p.title }}</h3>
                 <p class="proy-card__p">{{ t(`projects.${p.key}.desc`) }}</p>
@@ -504,13 +507,15 @@ const projects = [
     n: '01', cat: 'Mobile App', key: 'flowcash',
     title: 'FlowCash',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'JAVASCRIPT'],
-    github: 'https://github.com/roruiz93/FlowCash'
+    github: 'https://github.com/roruiz93/FlowCash',
+    preview: '/flowcash_demo.gif'
   },
   {
     n: '02', cat: 'Mobile App', key: 'dragonbote',
     title: 'Dragon Bote Training',
     tags: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'ZUSTAND'],
-    github: 'https://github.com/roruiz93/DragonBoatTraining'
+    github: 'https://github.com/roruiz93/DragonBoatTraining',
+    preview: '/dbtraining_demo.gif'
   },
   {
     n: '03', cat: 'Web App', key: 'lamaleta',
@@ -1266,6 +1271,26 @@ onBeforeUnmount(() => {
   min-height: 200px;
   gap: 1rem;
 }
+.proy-card__preview {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  background: #141820;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  margin: -2.25rem -2.5rem 1.25rem;
+  border-bottom: 2px solid var(--border);
+}
+.proy-card__gif {
+  height: calc(100% - 24px);
+  width: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0,0,0,0.4);
+}
+
 .proy-card__cat {
   font-family: var(--mono);
   font-size: 0.75rem;
