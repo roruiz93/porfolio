@@ -74,6 +74,10 @@
       "desc": "Web platform with internationalization (ES/EN), content management via Firebase and an independent admin panel.",
       "linkText": "See project →"
     },
+    "anotado": {
+      "desc": "Mobile app for Argentine self-employed workers (monotributistas). Manage jobs, clients and service catalog, with income tracking and AFIP billing limit monitoring.",
+      "linkText": "Private repository"
+    },
     "tagsLabel": "Technologies",
     "ghostTxt": "More projects on GitHub",
     "ghostAriaLabel": "See more projects by Rosario Ruiz on GitHub (opens in new tab)",

@@ -524,6 +524,11 @@ const projects = [
     github: 'https://la-maleta-e038c.web.app'
   },
   {
+    n: '04', cat: 'Mobile App', key: 'anotado',
+    title: 'Anotado',
+    tags: ['REACT NATIVE', 'EXPO', 'TYPESCRIPT', 'SUPABASE']
+  },
+  {
     ghost: true,
     key: null,
     github: 'https://github.com/roruiz93'

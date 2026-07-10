@@ -74,6 +74,10 @@
       "desc": "Plataforma web con internacionalización (ES/EN), administración de contenido vía Firebase y panel de administración independiente.",
       "linkText": "Ver proyecto →"
     },
+    "anotado": {
+      "desc": "App móvil para monotributistas argentinos. Gestión de trabajos, clientes y catálogo de servicios, con seguimiento de ingresos y límites de facturación de AFIP.",
+      "linkText": "Repositorio privado"
+    },
     "tagsLabel": "Tecnologías",
     "ghostTxt": "Más proyectos en GitHub",
     "ghostAriaLabel": "Ver más proyectos de Rosario Ruiz en GitHub (abre en nueva pestaña)",
