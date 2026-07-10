@@ -138,7 +138,7 @@
               </h2>
               <div class="stats">
                 <div class="stat">
-                  <span class="stat__n" :aria-label="t('about.stat1AriaLabel')">1+</span>
+                  <span class="stat__n" :aria-label="t('about.stat1AriaLabel')">2</span>
                   <span class="stat__l">{{ t('about.stat1Label') }}</span>
                 </div>
                 <div class="stat">
