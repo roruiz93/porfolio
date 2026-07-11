@@ -526,7 +526,8 @@ const projects = [
   {
     n: '04', cat: 'Mobile App', key: 'anotado',
     title: 'Anotado',
-    tags: ['REACT NATIVE', 'EXPO', 'TYPESCRIPT', 'SUPABASE']
+    tags: ['REACT NATIVE', 'EXPO', 'TYPESCRIPT', 'SUPABASE'],
+    preview: '/anotado_demo.gif'
   },
   {
     ghost: true,
