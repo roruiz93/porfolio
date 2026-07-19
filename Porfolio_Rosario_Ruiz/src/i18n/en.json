@@ -75,7 +75,7 @@
       "linkText": "See project →"
     },
     "anotado": {
-      "desc": "Mobile app for Argentine self-employed workers (monotributistas). Manage jobs, clients and service catalog, with income tracking and AFIP billing limit monitoring.",
+      "desc": "Mobile app for Argentine self-employed workers (monotributistas). Manage jobs, clients and service catalog, with income tracking and AFIP billing limit monitoring. Built with AI-assisted development (Claude Code) to speed up development and debugging.",
       "linkText": "Private repository"
     },
     "tagsLabel": "Technologies",

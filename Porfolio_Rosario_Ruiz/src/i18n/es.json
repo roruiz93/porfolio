@@ -75,7 +75,7 @@
       "linkText": "Ver proyecto →"
     },
     "anotado": {
-      "desc": "App móvil para monotributistas argentinos. Gestión de trabajos, clientes y catálogo de servicios, con seguimiento de ingresos y límites de facturación de AFIP.",
+      "desc": "App móvil para monotributistas argentinos. Gestión de trabajos, clientes y catálogo de servicios, con seguimiento de ingresos y límites de facturación de AFIP. Desarrollada con asistencia de IA (Claude Code) para acelerar el desarrollo y debugging.",
       "linkText": "Repositorio privado"
     },
     "tagsLabel": "Tecnologías",
