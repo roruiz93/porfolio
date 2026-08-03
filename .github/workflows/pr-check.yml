@@ -1,12 +1,12 @@
-name: Deploy to Firebase Hosting
+name: PR Checks
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  build-and-deploy:
+  lint-and-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,3 @@ jobs:
       - name: Build
         working-directory: Porfolio_Rosario_Ruiz
         run: npm run build
-
-      - name: Deploy to Firebase Hosting
-        working-directory: Porfolio_Rosario_Ruiz
-        run: npx firebase-tools deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive
