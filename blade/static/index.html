@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blade</title>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 40px auto; }
+    #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; margin-bottom: 10px; }
+    .yo { text-align: right; color: #2563eb; }
+    .blade { text-align: left; color: #16a34a; }
+  </style>
+</head>
+<body>
+  <h1>Blade</h1>
+  <div id="chat"></div>
+  <input id="input" type="text" placeholder="Escribile a Blade..." style="width: 80%;" />
+  <button onclick="enviar()">Enviar</button>
+
+  <script>
+    async function enviar() {
+      const input = document.getElementById("input");
+      const texto = input.value;
+      if (!texto) return;
+      agregarMensaje(texto, "yo");
+      input.value = "";
+
+      const res = await fetch("/mensaje", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texto })
+      });
+      const data = await res.json();
+      agregarMensaje(data.respuesta, "blade");
+    }
+
+    function agregarMensaje(texto, quien) {
+      const chat = document.getElementById("chat");
+      const p = document.createElement("p");
+      p.className = quien;
+      p.textContent = texto;
+      chat.appendChild(p);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    document.getElementById("input").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") enviar();
+    });
+  </script>
+</body>
+</html>
